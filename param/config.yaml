@@ -6,13 +6,3 @@ zenoh_params:
   wheel_cmd_publisher:
     sub_topic: "cmd_vel"
     pub_topic: "wheel/cmd_vel"
-
-  wheel:
-    sub_topic: "wheel/cmd_vel"
-    pub_topic: "motor/wheel"
-  
-  wheel_serial:
-    sub_topic: "motor/wheel"
-    port_name: "/dev/ttyACM0"
-    baud_rate: 115200
-  
