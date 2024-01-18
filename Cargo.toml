@@ -11,3 +11,5 @@ zenoh = "0.7.0-rc"
 
 keyboard_publisher = {git = "https://github.com/PureRustRobot/keyboard_publisher.git"}
 command_controller = {git = "https://github.com/PureRustRobot/command_controller.git"}
+motor_controller = {git = "https://github.com/PureRustRobot/motor_controller"}
+serial_transporter = {git = "https://github.com/PureRustRobot/serial_transporter"}
