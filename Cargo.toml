@@ -9,7 +9,7 @@ edition = "2021"
 async-std = "1.0"
 zenoh = "0.7.0-rc"
 
-keyboard_publisher = {git = "https://github.com/PureRustRobot/keyboard_publisher.git"}
+joy_publisher = {git = "https://github.com/PureRustRobot/joy_publisher"}
 command_controller = {git = "https://github.com/PureRustRobot/command_controller.git"}
 motor_controller = {git = "https://github.com/PureRustRobot/motor_controller"}
-serial_transporter = {git = "https://github.com/PureRustRobot/serial_transporter"}
+udp_bridge = {git = "https://github.com/PureRustRobot/udp_bridge"}
