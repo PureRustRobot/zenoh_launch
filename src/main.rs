@@ -4,7 +4,8 @@ use zenoh::Error;
 use joy_publisher::joy_publisher;
 use command_controller::gamecon_to_cmd_vel;
 use motor_controller::cmd_vel_to_wheel;
-use udp_bridge::wheel_bridge;
+// use udp_bridge::wheel_bridge;
+use serial_transporter::serial_transporter;
 
 #[async_std::main]
 async fn main()->Result<(), Error>
@@ -15,17 +16,14 @@ async fn main()->Result<(), Error>
 
     let cmd_to_wheel = async_std::task::spawn(cmd_vel_to_wheel("cmd_vel_to_wheel", "cmd_vel/wheel", "motor/wheel", 1.0, false));
 
-    let wheel_to_esp32 = async_std::task::spawn(wheel_bridge(
-        "to_esp32", 
-        "motor/wheel", 
-        "192.168.4.2:8080", 
-        "192.168.4.1:10000", 
-        true));
+    // let udp = async_std::task::spawn(wheel_bridge("wheel_bridge", "motor/wheel", "192.168.4.2:8080", "192.168.4.1:10000", true));
+    let serial = async_std::task::spawn(serial_transporter("serial_transporter", "motor/wheel", "/dev/ttyACM0", 115200, false));
 
     controller_task.await?;
     cmd_convert_task.await?;
     cmd_to_wheel.await?;
-    wheel_to_esp32.await?;
-
+    // udp.await?;
+    serial.await?;
     Ok(())
 }
+

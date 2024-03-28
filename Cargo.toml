@@ -14,3 +14,4 @@ joy_publisher = {git = "https://github.com/PureRustRobot/joy_publisher"}
 command_controller = {git = "https://github.com/PureRustRobot/command_controller.git"}
 motor_controller = {git = "https://github.com/PureRustRobot/motor_controller"}
 udp_bridge = {git = "https://github.com/PureRustRobot/udp_bridge"}
+serial_transporter = {git = "https://github.com/PureRustRobot/serial_transporter"}
